@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAXLEN 1000
+
+int get_line(char line[], int lim);
+int strindex(char source[], char pattern[]);
+
+int main(void)
+{
+  char line[MAXLEN];
+  char pattern[MAXLEN] = "example";
+
+  get_line(line, MAXLEN);
+  printf("%s\n", line);
+
+  printf("Pattern found at index %d\n", strindex(line, pattern));
+
+  return 0;
+}

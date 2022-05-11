@@ -1,0 +1,13 @@
+int get_line(char line[], int lim)
+{
+  char c;
+  int i = 0;
+  while (i < lim - 1 && (c = getchar()) != EOF && c != '\n')
+  {
+    line[i++] = c;
+  }
+
+  line[i] = '\0';
+
+  return i;
+}

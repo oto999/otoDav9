@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <ctype.h>
+
+#define MAXLINE 100
+
+int get_line(char line[], int lim);
+int htoi(char hex[]);
+
+int main(void)
+{
+  char hex[MAXLINE];
+
+  get_line(hex, MAXLINE);
+
+  printf("%d", htoi(hex));
+
+  return 0;
+}

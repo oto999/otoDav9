@@ -1,0 +1,25 @@
+CC=gcc
+CFLAGS=-Wall 
+
+
+all : any
+.PHONY : all
+
+any: main.o any.o
+	$(CC) $(CFLAGS) -o any main.o any.o 
+
+main.o : main.c 
+	$(CC) -Wall -c -o main.o main.c
+
+any.o : any.c 
+	$(CC) -Wall -c -o any.o any.c
+	
+debug:clean main.c any.c
+	$(CC) -Wall -g -o occ main.c any.c 
+	gdb -tui  occ
+
+	
+	
+.PHONY: clean
+clean : 
+	rm -rf *.o 

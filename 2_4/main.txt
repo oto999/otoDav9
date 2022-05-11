@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+#define MAXSTR 1000
+
+void squeeze(char str1[], char str2[]);
+
+int main(void)
+{
+  char str1[MAXSTR] = "abcdefg";
+  char str2[MAXSTR] = "abcd";
+
+  squeeze(str1, str2);
+
+  printf("%s", str1);
+
+  return 0;
+}

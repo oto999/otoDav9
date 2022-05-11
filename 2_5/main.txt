@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXSTR 1000
+
+int any(char str1[], char str2[]);
+
+int main(void)
+{
+  char str1[MAXSTR] = "xxxabcabc";
+  char str2[MAXSTR] = "cbaa";
+
+  printf("%d", any(str1, str2));
+
+  return 0;
+}

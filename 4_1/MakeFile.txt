@@ -1,0 +1,28 @@
+CC=gcc
+CFLAGS=-Wall 
+
+
+all : strindex
+.PHONY : all
+
+strindex: main.o get_line.o strindex.o
+	$(CC) $(CFLAGS) -o strindex main.o get_line.o strindex.o 
+
+main.o : main.c 
+	$(CC) -Wall -c -o main.o main.c
+
+get_line.o : get_line.c 
+	$(CC) -Wall -c -o get_line.o get_line.c
+
+strindex.o : strindex.c 
+	$(CC) -Wall -c -o strindex.o strindex.c
+	
+debug:clean main.c get_line.c strindex.c
+	$(CC) -Wall -g -o occ main.c get_line.c strindex.c 
+	gdb -tui  occ
+
+	
+	
+.PHONY: clean
+clean : 
+	rm -rf *.o 

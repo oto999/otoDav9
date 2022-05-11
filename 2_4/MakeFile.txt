@@ -1,0 +1,25 @@
+CC=gcc
+CFLAGS=-Wall 
+
+
+all : squeeze
+.PHONY : all
+
+squeeze: main.o squeeze.o
+	$(CC) $(CFLAGS) -o squeeze main.o squeeze.o 
+
+main.o : main.c 
+	$(CC) -Wall -c -o main.o main.c
+
+squeeze.o : squeeze.c 
+	$(CC) -Wall -c -o squeeze.o squeeze.c
+	
+debug:clean main.c squeeze.c
+	$(CC) -Wall -g -o occ main.c squeeze.c 
+	gdb -tui  occ
+
+	
+	
+.PHONY: clean
+clean : 
+	rm -rf *.o 
